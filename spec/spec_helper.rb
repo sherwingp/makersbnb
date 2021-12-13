@@ -6,7 +6,8 @@ require 'pg'
 require './app/app'
 require 'simplecov'
 require 'simplecov-console'
-
+require_relative 'support/user_authentication'
+require_relative 'support/setup_test_database'
 Capybara.app = Makersbnb
 
 
