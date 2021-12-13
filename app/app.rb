@@ -5,3 +5,4 @@ require 'sinatra/flash'
 require 'sinatra/reloader'
 
 require_relative 'controllers/app_controller'
+require_relative 'controllers/registrations_controller'

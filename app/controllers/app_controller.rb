@@ -1,11 +1,6 @@
 class Makersbnb < Sinatra::Base
+  set :root, File.dirname(File.expand_path('..', __FILE__))
   configure :development do
     register Sinatra::Reloader
   end
-
-  get '/' do
-    'Hello World'
-  end
-
-  run! if app_file == $0
 end

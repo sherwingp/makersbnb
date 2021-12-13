@@ -4,6 +4,6 @@ def sign_up
   fill_in('name', with: 'Test')
   fill_in('email', with: 'test@test.com')
   fill_in('password', with: 'password')
-  click_button('Sign up')
+  click_button('Sign Up')
 end
 

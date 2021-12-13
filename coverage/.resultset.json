@@ -1,13 +1,13 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/sherwinpanganiban/Desktop/Projects/Makers/week-5/makersbnb/spec/features/registration/sign_up_spec.rb": {
+      "/Users/sherwinpanganiban/Desktop/Projects/Makers/week-5/makersbnb/spec/features/registrations/sign_up_spec.rb": {
         "lines": [
           1,
           1,
           1,
           1,
-          0,
+          1,
           null,
           null,
           null
@@ -40,6 +40,6 @@
         ]
       }
     },
-    "timestamp": 1639415612
+    "timestamp": 1639417522
   }
 }
