@@ -1,7 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require './lib/bookings'
-require './lib/spaces'
+require './models/bookings'
+require './models/spaces'
 
 class MakersBnB < Sinatra::Base
   configure :development do
@@ -13,3 +13,4 @@ class MakersBnB < Sinatra::Base
 
   run! if app_file == $0
 end
+
