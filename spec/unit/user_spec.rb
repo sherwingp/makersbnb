@@ -26,7 +26,7 @@ describe User do
     end
 
     it 'returns a user instance when given correct details' do
-      expect(User.authenticate(email: @user.email, password: @user.password)).to be_a User
+      expect(User.authenticate(email: @user.email, password: 'test')).to be_a User
     end
 
     it 'returns nil when given a wrong email' do

@@ -1,4 +1,5 @@
 require './lib/database_connection'
+require 'bcrypt'
 
 class User
   attr_reader :id, :first_name, :last_name, :email, :password
@@ -12,6 +13,7 @@ class User
   end
 
   def self.create(first_name:, last_name:, email:, password:)
+    password = BCrypt::Password.create(password)
     result = DatabaseConnection.query(
       "INSERT INTO users (first_name, last_name, email, password) VALUES($1, $2, $3, $4) 
         RETURNING id, first_name, last_name, email, password;", [first_name, last_name, email, password])
@@ -21,7 +23,7 @@ class User
   def self.authenticate(email:, password:)
     result = DatabaseConnection.query("SELECT * FROM users WHERE email = $1", [email])
     return unless result.any?
-    return unless result[0]['password'] == password
+    return unless BCrypt::Password.new(result[0]['password']) == password
     instantiate(result)
   end
 end
