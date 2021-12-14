@@ -15,6 +15,19 @@ class User
     result = DatabaseConnection.query(
       "INSERT INTO users (first_name, last_name, email, password) VALUES($1, $2, $3, $4) 
         RETURNING id, first_name, last_name, email, password;", [first_name, last_name, email, password])
-    User.new(id: result[0]['id'], first_name: result[0]['first_name'], last_name: result[0]['last_name'], email: result[0]['email'], password: result[0]['password'])
+    instantiate(result)
   end
+
+  def self.authenticate(email:, password:)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE email = $1", [email])
+    return unless result.any?
+    return unless result[0]['password'] == password
+    instantiate(result)
+  end
+end
+
+private
+
+def instantiate(result)
+  User.new(id: result[0]['id'], first_name: result[0]['first_name'], last_name: result[0]['last_name'], email: result[0]['email'], password: result[0]['password'])
 end
