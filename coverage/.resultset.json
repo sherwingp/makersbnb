@@ -34,6 +34,19 @@
           null
         ]
       },
+      "/Users/sherwinpanganiban/Desktop/Projects/Makers/week-5/makersbnb/spec/features/authentication/log_out_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
       "/Users/sherwinpanganiban/Desktop/Projects/Makers/week-5/makersbnb/spec/features/registrations/sign_up_spec.rb": {
         "lines": [
           1,
@@ -117,6 +130,6 @@
         ]
       }
     },
-    "timestamp": 1639493567
+    "timestamp": 1639493712
   }
 }
