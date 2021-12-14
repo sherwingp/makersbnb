@@ -1,0 +1,1 @@
+CREATE TABLE spaces(id SERIAL PRIMARY KEY, location VARCHAR(50), price VARCHAR(10), host_id VARCHAR(20));

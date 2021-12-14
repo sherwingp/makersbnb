@@ -8,7 +8,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/requests' do
-    @requests = Request.request_space
+    @requests = Request.all
     erb :requests
   end
 
