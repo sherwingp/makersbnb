@@ -6,17 +6,23 @@ feature 'logging in' do
   end
 
   context 'with an invalid email' do
-    scenario 'gives an indication of logging in' do
+    scenario 'shows an error message' do
       sign_up
-      log_in
-      expect(page).to have_content "Invalid email or pasword"
+      visit '/'
+      fill_in('email', with: 'invalid email')
+      fill_in('password', with: 'password')
+      click_button('Log In')
+      expect(page).to have_content "Invalid email or password"
     end
   end
 
   context 'with an invalid password' do
-    scenario 'gives an indication of logging in' do
+    scenario 'shows an error message' do
       sign_up
-      log_in
+      visit '/'
+      fill_in('email', with: 'test@test.com')
+      fill_in('password', with: 'wrong password')
+      click_button('Log In')
       expect(page).to have_content "Invalid email or password"
     end
   end
