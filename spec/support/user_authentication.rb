@@ -8,3 +8,10 @@ def sign_up
   click_button('Sign Up')
 end
 
+def log_in
+  visit '/'
+  fill_in('email', with: 'test@test.com')
+  fill_in('password', with: 'password')
+  click_button('Log In')
+end
+
