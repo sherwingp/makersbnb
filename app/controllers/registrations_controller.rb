@@ -1,7 +1,11 @@
 class Makersbnb < Sinatra::Base
 
 get '/' do
-  erb(:'sessions/sign_in')
+  if session[:user]
+    erb(:homepage) 
+  else
+    erb(:'sessions/sign_in') 
+  end
 end
 
 get '/register' do

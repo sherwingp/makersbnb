@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <form action='/sessions/logout' method='post'>
+      <input type='submit' name='log_out' value='Log Out'>
+    </form>
     <% flash.keys.each do |type| %>
       <div data-alert class="flash <%= type %> alert-box radius">
         <%= flash[type] %>

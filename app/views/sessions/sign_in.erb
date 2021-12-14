@@ -2,12 +2,8 @@
   <input type='submit' name='register' value='Create New Account'>
 </form>
 
-<form action='/sessions' method='post'>
+<form id="login-form" action='/sessions' method='post'>
   <input type='text' name='email' placeholder='Email'>
   <input type='password' name='password' placeholder='Password'>
   <input type='submit' name='log_in' value='Log In'>
 </form>
-
-<% if session[:user] %>
-<%= session[:user].first_name %>
-<% end %>

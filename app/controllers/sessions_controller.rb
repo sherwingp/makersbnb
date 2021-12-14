@@ -10,4 +10,10 @@ class Makersbnb < Sinatra::Base
     end
     redirect '/'
   end
+
+  post '/sessions/logout' do
+    session.clear
+    p session
+    redirect '/'
+  end
 end
