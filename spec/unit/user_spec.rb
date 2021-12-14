@@ -11,7 +11,7 @@ describe User do
       )
       expect(user.id).not_to eq nil
       expect(user.first_name).to eq 'Sherwin'
-      expect(user.email).go eq 'test@test.com'
+      expect(user.email).to eq 'test@test.com'
     end
   end
 end
