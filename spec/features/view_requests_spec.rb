@@ -1,14 +1,27 @@
 feature 'View guest requests' do
-  scenario 'see all request for available nights' do
+  scenario "see all requests I've made for available nights" do
 
-    connection = PG.connect(dbname: 'spaces_test')
+    connection = PG.connect(dbname: 'request_test')
 
-    connection.exec("INSERT INTO spaces (location) VALUES ('Single bedroom in Camden');")
-    connection.exec("INSERT INTO spaces (location) VALUES ('Double bedroom in Barking');")
+    connection.exec("INSERT INTO requests (approved, space_id) VALUES ('Yes', 1);")
+    connection.exec("INSERT INTO requests (approved, space_id) VALUES ('No', 2);")
       
     visit('/requests')
 
-    expect(page).to have_content "Single bedroom in Camden"
-    expect(page).to have_content "Double bedroom in Barking"
+    expect(page).to have_content "t"
+    expect(page).to have_content "f"
+  end
+
+  scenario "see all requests I've received for available nights" do
+
+    connection = PG.connect(dbname: 'request_test')
+
+    connection.exec("INSERT INTO requests (approved, space_id) VALUES ('Yes', 1);")
+    connection.exec("INSERT INTO requests (approved, space_id) VALUES ('No', 2);")
+      
+    visit('/requests')
+
+    expect(page).to have_content "t"
+    expect(page).to have_content "f"
   end
 end
