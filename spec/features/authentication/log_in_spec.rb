@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 feature 'logging in' do
-  let!(:user) { User.create(first_name: 'Sherwin', last_name: 'Test', email: 'test@test.com', password: 'password')}
+  let!(:user) { User.create(first_name: 'Sherwin', last_name: 'Test', email: 'test@test.com', password: 'password') }
   scenario 'gives an indication of logging in' do
     log_in
-    expect(page).to have_content "Sherwin"
+    expect(page).to have_content 'Sherwin'
   end
 
   context 'with an invalid email' do
@@ -11,7 +13,7 @@ feature 'logging in' do
       fill_in('email', with: 'invalid email')
       fill_in('password', with: 'password')
       click_button('Log In')
-      expect(page).to have_content "Invalid email or password"
+      expect(page).to have_content 'Invalid email or password'
     end
   end
 
@@ -21,7 +23,7 @@ feature 'logging in' do
       fill_in('email', with: 'test@test.com')
       fill_in('password', with: 'wrong password')
       click_button('Log In')
-      expect(page).to have_content "Invalid email or password"
+      expect(page).to have_content 'Invalid email or password'
     end
   end
 end

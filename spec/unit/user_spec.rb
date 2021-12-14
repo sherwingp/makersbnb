@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 require './app/models/user'
 
 describe User do
   describe '.create' do
     it 'returns a persisted user instance' do
       user = User.create(
-        first_name: 'Sherwin', 
-        last_name: 'Test', 
-        email: 'test@test.com', 
+        first_name: 'Sherwin',
+        last_name: 'Test',
+        email: 'test@test.com',
         password: 'test'
       )
       expect(user.id).not_to eq nil
@@ -16,36 +18,36 @@ describe User do
 
     it 'returns nil when email format is invalid' do
       expect(User.create(
-        first_name: 'Sherwin', 
-        last_name: 'Test', 
-        email: 'incorrect', 
-        password: 'test'
-      )).to eq "invalid email"
+               first_name: 'Sherwin',
+               last_name: 'Test',
+               email: 'incorrect',
+               password: 'test'
+             )).to eq 'invalid email'
     end
 
     it 'returns nil when email is already taken' do
       expect(User.create(
-        first_name: 'Sherwin', 
-        last_name: 'Test', 
-        email: 'test@test.com', 
-        password: 'test'
-      ))
+               first_name: 'Sherwin',
+               last_name: 'Test',
+               email: 'test@test.com',
+               password: 'test'
+             ))
 
       expect(User.create(
-        first_name: 'Sherwin', 
-        last_name: 'Test', 
-        email: 'test@test.com', 
-        password: 'test'
-      )).to eq "email taken"
+               first_name: 'Sherwin',
+               last_name: 'Test',
+               email: 'test@test.com',
+               password: 'test'
+             )).to eq 'email taken'
     end
   end
 
   describe '.authenticate' do
     before(:each) do
       @user = User.create(
-        first_name: 'Sherwin', 
-        last_name: 'Test', 
-        email: 'test@test.com', 
+        first_name: 'Sherwin',
+        last_name: 'Test',
+        email: 'test@test.com',
         password: 'test'
       )
     end

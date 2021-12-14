@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def sign_up
   visit '/'
   click_button 'Create New Account'
@@ -14,5 +16,3 @@ def log_in
   fill_in('password', with: 'password')
   click_button('Log In')
 end
-
-

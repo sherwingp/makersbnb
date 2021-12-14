@@ -1,5 +1,6 @@
-feature 'Registration' do
+# frozen_string_literal: true
 
+feature 'Registration' do
   context 'Signing up' do
     scenario 'shows indication of sign up' do
       visit '/'
@@ -9,7 +10,7 @@ feature 'Registration' do
       fill_in('email', with: 'test@test.com')
       fill_in('password', with: 'password')
       click_button('Sign Up')
-      expect(page).to have_content("Sherwin")
+      expect(page).to have_content('Sherwin')
     end
 
     context 'Shows an error' do
@@ -21,7 +22,7 @@ feature 'Registration' do
         fill_in('email', with: 'invalid email')
         fill_in('password', with: 'password')
         click_button('Sign Up')
-        expect(page).to have_content("Please enter a valid email address.")
+        expect(page).to have_content('Please enter a valid email address.')
       end
 
       scenario 'when an existing email is given' do
@@ -33,7 +34,7 @@ feature 'Registration' do
         fill_in('email', with: 'test@test.com')
         fill_in('password', with: 'password')
         click_button('Sign Up')
-        expect(page).to have_content("An account already exists with this email address.")
+        expect(page).to have_content('An account already exists with this email address.')
       end
     end
   end

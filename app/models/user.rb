@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './lib/database_connection'
 require 'bcrypt'
 
@@ -13,20 +15,22 @@ class User
   end
 
   def self.create(first_name:, last_name:, email:, password:)
-    return "invalid email" if (email =~ URI::MailTo::EMAIL_REGEXP).nil?
-    return "email taken" unless unique?(email)
+    return 'invalid email' if (email =~ URI::MailTo::EMAIL_REGEXP).nil?
+    return 'email taken' unless unique?(email)
 
     password = BCrypt::Password.create(password)
     result = DatabaseConnection.query(
-      "INSERT INTO users (first_name, last_name, email, password) VALUES($1, $2, $3, $4) 
-        RETURNING id, first_name, last_name, email, password;", [first_name, last_name, email, password])
+      "INSERT INTO users (first_name, last_name, email, password) VALUES($1, $2, $3, $4)
+        RETURNING id, first_name, last_name, email, password;", [first_name, last_name, email, password]
+    )
     instantiate(result)
   end
 
   def self.authenticate(email:, password:)
-    result = DatabaseConnection.query("SELECT * FROM users WHERE email = $1", [email])
+    result = DatabaseConnection.query('SELECT * FROM users WHERE email = $1', [email])
     return unless result.any?
     return unless BCrypt::Password.new(result[0]['password']) == password
+
     instantiate(result)
   end
 end
@@ -34,10 +38,11 @@ end
 private
 
 def instantiate(result)
-  User.new(id: result[0]['id'], first_name: result[0]['first_name'], last_name: result[0]['last_name'], email: result[0]['email'], password: result[0]['password'])
+  User.new(id: result[0]['id'], first_name: result[0]['first_name'], last_name: result[0]['last_name'],
+           email: result[0]['email'], password: result[0]['password'])
 end
 
 def unique?(email)
-  return DatabaseConnection.query("SELECT EXISTS(SELECT 1 FROM users WHERE email = $1)", 
-  [email])[0]['exists'] == "f"
+  DatabaseConnection.query('SELECT EXISTS(SELECT 1 FROM users WHERE email = $1)',
+                           [email])[0]['exists'] == 'f'
 end
