@@ -15,11 +15,10 @@ describe Spaces do
   describe '.list' do
     it 'displays all the spaces' do
       connection_test = DatabaseConnection.setup('makersbnb_test')
-      space = Spaces.create(location: 'Spain', price: '300', host_id: 'host_6')
-      # Spaces.create(location: 'London', price: '200', host_id: 'host_8')
+      Spaces.create(location: 'Spain', price: '300', host_id: 'host_6')
+       Spaces.create(location: 'London', price: '200', host_id: 'host_8')
       spaces = Spaces.list
-      expect(spaces.list.location).to eq 'Spain'
-      # expect(spaces.first.price).to eq '300'
+       expect(spaces.first.price).to eq '300.00'
       # expect(spaces.second.location).to eq 'London'
     end
   end
