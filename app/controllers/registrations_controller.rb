@@ -18,9 +18,11 @@ class Makersbnb < Sinatra::Base
                          password: params[:password])
     case result
     when 'invalid email'
-      flash[:error] = 'Please enter a valid email address.'
+      flash[:warning] = 'Please enter a valid email address.'
+      redirect '/register'
     when 'email taken'
-      flash[:error] = 'An account already exists with this email address.'
+      flash[:warning] = 'An account already exists with this email address.'
+      redirect '/register'
     else
       session[:user] = result
       redirect '/'
