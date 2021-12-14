@@ -14,13 +14,29 @@ describe User do
       expect(user.email).to eq 'test@test.com'
     end
 
-    it 'returns nil when an invalid email' do
+    it 'returns nil when email format is invalid' do
       expect(User.create(
         first_name: 'Sherwin', 
         last_name: 'Test', 
-        email: 'test@test', 
+        email: 'incorrect', 
         password: 'test'
-      )).to eq nil
+      )).to eq "invalid email"
+    end
+
+    it 'returns nil when email is already taken' do
+      expect(User.create(
+        first_name: 'Sherwin', 
+        last_name: 'Test', 
+        email: 'test@test.com', 
+        password: 'test'
+      ))
+
+      expect(User.create(
+        first_name: 'Sherwin', 
+        last_name: 'Test', 
+        email: 'test@test.com', 
+        password: 'test'
+      )).to eq "email taken"
     end
   end
 

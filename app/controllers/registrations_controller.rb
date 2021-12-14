@@ -14,13 +14,15 @@ end
 
 
 post '/register' do
-  user = User.create(
-    first_name: params[:first_name],
-    last_name: params[:last_name], 
-    email: params[:email], 
-    password: params[:password]
-  )
-  session[:user] = user
-  redirect '/'
+  result = User.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password])
+  case result
+  when  "invalid email"
+    flash[:error] = "Please enter a valid email address."
+  when "email taken"
+    flash[:error] = "An account already exists with this email address."
+  else
+    session[:user] = result
+    redirect '/'
+  end
 end
 end

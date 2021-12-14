@@ -13,6 +13,9 @@ class User
   end
 
   def self.create(first_name:, last_name:, email:, password:)
+    return "invalid email" if (email =~ URI::MailTo::EMAIL_REGEXP).nil?
+    return "email taken" unless unique?(email)
+
     password = BCrypt::Password.create(password)
     result = DatabaseConnection.query(
       "INSERT INTO users (first_name, last_name, email, password) VALUES($1, $2, $3, $4) 
@@ -32,4 +35,9 @@ private
 
 def instantiate(result)
   User.new(id: result[0]['id'], first_name: result[0]['first_name'], last_name: result[0]['last_name'], email: result[0]['email'], password: result[0]['password'])
+end
+
+def unique?(email)
+  return DatabaseConnection.query("SELECT EXISTS(SELECT 1 FROM users WHERE email = $1)", 
+  [email])[0]['exists'] == "f"
 end
