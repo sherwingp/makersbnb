@@ -21,10 +21,10 @@ class MakersBnB < Sinatra::Base
   post '/requests' do
     # p params
     # p "working?"
-#     space_id = params['space_id']
-#     connection = PG.connect(dbname: 'request_test')
-#     connection.exec("INSERT INTO requests (space_id) VALUES('#{space_id}')")
-#     redirect '/requests'
+    space_id = params['space_id']
+    connection = PG.connect(dbname: 'request_test')
+    connection.exec("INSERT INTO requests (space_id) VALUES('#{space_id}')")
+    redirect '/requests'
   end
 
   run! if app_file == $0
