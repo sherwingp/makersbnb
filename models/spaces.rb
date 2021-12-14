@@ -2,7 +2,11 @@ require_relative './database_connection'
 require 'pg'
 
 class Spaces
-  attr_reader :location, :price, :host_id
+  attr_reader :location, :price, :host_id, :id
+
+  def testing
+    "hello"
+  end
 
   def initialize (location:, price:, host_id:)
     @location = location
@@ -28,9 +32,17 @@ class Spaces
       connection = PG.connect(dbname: 'makersbnb')
      end
     result = DatabaseConnection.query('SELECT * FROM spaces;')
-    result.map{|space| Spaces.new(location: space['location'], price: space['price'], host_id: space['host_id'])}
+    result.map{|space| Spaces.new(location: space['location'], price: space['price'], host_id: space['host_id'], id: space['id'])}
   end
 
- 
+  # private
+  # def connect
+  #   if ENV['ENVIRONMENT'] == 'test'
+  #     connection = PG.connect(dbname: 'makersbnb_test')
+  #    else
+  #     connection = PG.connect(dbname: 'makersbnb')
+  #    end
+  # end
+
 
 end

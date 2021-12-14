@@ -19,7 +19,8 @@ describe Spaces do
        Spaces.create(location: 'London', price: '200', host_id: 'host_8')
       spaces = Spaces.list
        expect(spaces.first.price).to eq '300.00'
-      # expect(spaces.second.location).to eq 'London'
+       expect(spaces.first.location).to eq 'Lahore'
+       expect(spaces.length).to eq 2
     end
   end
 
