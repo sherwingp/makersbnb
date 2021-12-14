@@ -13,6 +13,15 @@ describe User do
       expect(user.first_name).to eq 'Sherwin'
       expect(user.email).to eq 'test@test.com'
     end
+
+    it 'returns nil when an invalid email' do
+      expect(User.create(
+        first_name: 'Sherwin', 
+        last_name: 'Test', 
+        email: 'test@test', 
+        password: 'test'
+      )).to eq nil
+    end
   end
 
   describe '.authenticate' do
