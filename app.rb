@@ -10,7 +10,6 @@ class MakersBnB < Sinatra::Base
 
   get '/requests' do
     @requests = Request.all
-    # @requests2 = Request_received.all
     erb :requests
   end
 

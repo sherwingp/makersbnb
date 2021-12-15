@@ -1,12 +1,12 @@
 feature 'View guest requests' do
   scenario "see all requests I've made for available nights" do
 
-    Request.create(space_id: "1")
-    Request.create(space_id: "2")
+    Request.create(space_id: "space_1")
+    Request.create(space_id: "space_2")
     visit('/requests')
 
-    expect(page).to have_content "1"
-    expect(page).to have_content "2"
+    expect(page).to have_content "space_1"
+    expect(page).to have_content "space_2"
   end
 
   # scenario "see all requests I've received for available nights" do
