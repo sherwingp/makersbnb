@@ -1,3 +1,10 @@
-<% if session[:user] %>
-Welcome<%=", #{session[:user].first_name}!"%>
-<% end %>
+<div class="homepage-container">
+  <a target="_blank" href="cloris-ying.jpg">
+    <img src="cloris-ying.jpg" alt="A house under the stars">
+  </a>
+  <div id="welcome">
+    <% if session[:user] %>
+    <h1>Welcome<%=", #{session[:user].first_name}!"%></h1>
+    <% end %>
+  </div>
+</div>

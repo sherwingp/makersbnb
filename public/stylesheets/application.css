@@ -17,7 +17,7 @@
 }
 
 body {
-  background-color: var(--Foggy);
+  background-color: #1a1b1c;
 }
 
 .container {
@@ -38,6 +38,15 @@ body {
   background-color: var(--primary);
   color: white;
   padding: 16px 32px;
+}
+
+#logo a {
+  text-decoration: none;
+  color: white;
+}
+
+#logo a:hover {
+  color: var(--rausch);
 }
 
 .drop-menu {
@@ -242,9 +251,51 @@ body {
   top: 250px;
 }
 
+.homepage-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top:120px;
+  color: white;
+}
+
+#welcome {
+  position: absolute;
+  top: 100px;
+}
+
+.homepage-container img {
+  border-radius: 25px;
+  height: 800px;
+  width: 1000px;
+}
+
 .flex-container {
   display: flex;
   justify-content: center;
+}
+
+.dropdown-form form{
+  text-align: center;
+  width: 100%;
+  height: 50px;
+}
+
+.link-button {
+  display: block;
+  width: 100%;
+}
+
+.flash{
+  width: 600px;
+  padding: 5px;
+  font-weight: bold;
+  margin: 20px;
+  background:#ddd;
+  color:#666;border:1px solid #ccc;
+  z-index: 100;
+  position: relative;
+  top: 52px;
 }
 
 @media (min-width: 768px) {
