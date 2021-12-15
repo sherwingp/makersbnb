@@ -1,4 +1,3 @@
-
 require 'pg'
 
 class Request
@@ -6,7 +5,7 @@ class Request
   attr_reader :id, :space_id
 
   def initialize(id:, space_id:)
-    @id  = id
+    @id = id
     @space_id = space_id
   end
 
@@ -30,7 +29,7 @@ class Request
       connection = PG.connect(dbname: 'request')
     end
 
-    result = connection.exec("INSERT INTO requests (space_id) VALUES('#{space_id}') RETURNING id, approved, space_id")
+    result = connection.exec_params("INSERT INTO requests (space_id) VALUES($1) RETURNING id, approved, space_id;", [space_id])
     Request.new(id: result[0]['id'], space_id: result[0]['space_id'])
   end
 end
