@@ -6,6 +6,7 @@
 
   <% @spaces.each do |space| %>
     <div>
+    <%= space.host_id %>
       <%= space.location %>
       <%= space.price %>
       <form method="get" action="/spaces/<%=space.id%>/book">
