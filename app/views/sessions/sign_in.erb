@@ -1,18 +1,47 @@
-<div id="sign-in-container">
-  <div class="flex-container">
-    <form id="login-form" action='/sessions' method='post'>
-      <div>
-        <input type='text' name='email' placeholder='Email'>
-        <input type='password' name='password' placeholder='Password'>
-        <div class="flex-container">
-        <input type='submit' name='log_in' value='Log In'>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div class="flex-container">
-    <form action='/register' method='get'>
-        <input type='submit' value='Create New Account'>
-    </form>
-  </div>
+<div id="register-background" >
+  <a>
+    <img src="jake-hinds.jpg" alt="A house under the stars">
+  </a>
 </div>
+<a class="unblur" href="/">
+  <div class="blur"></div>
+</a>
+
+<div id="sign-in-container">
+  <div id="sign-in-header">
+    <a href="/">
+      <span class="material-icons-outlined">close</span>
+    </a>
+    <div id="sign-in-title">
+    </h2>Welcome back!</h2>
+    </div>
+    <div>
+      </h5>Ready to go?</h5>
+    </div>
+  </div>
+
+  <form id="login-form" action='/sessions' method='post'>
+    <div class="form">
+      <div class="input-container ic1">
+        <input id="email" class="input" type='text' name='email' placeholder=' '>
+        <div class="cut cut-short"></div>
+        <label for="email" class="placeholder">Email</label>
+      <div class="input-container ic2">
+        <input id="password" class="input" type='password' name='password' placeholder=' '>
+        <div class="cut"></div>
+        <label for="password" class="placeholder">Password</label>
+      </div>
+      <div>
+        <input class="submit" type='submit' name='log_in' value='Log In'>
+      </div>
+    </div>
+  </form>
+</div>
+
+  <form id="login-to-register" action='/register' method='get'>
+    <div class="form">
+      <div>
+        <input class="submit" type='submit' name='register' value='Create New Account'>
+      </div>
+    </div>
+  </form>
