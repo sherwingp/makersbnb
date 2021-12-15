@@ -26,8 +26,8 @@
           </a>
         </div>
         <div class="menu">
-          <a href="/" class="is-active">Home</a>
-          <a href="#">About</a>
+          <a href="/" class="<%=request.path_info == '/' ? "is-active" : "nil" %>">Home</a>
+          <a href="/spaces" class="<%=request.path_info == '/spaces' ? "is-active" : "nil" %>">Places to stay</a>
         </div>
         
         <input name="checkbox" id="checkbox1" type="checkbox">
@@ -56,9 +56,9 @@
 
               <%if session[:user].nil?%>
               <li class="list-button" id="login">
-                <a href="/">
+                <a href="/login">
                   <h3>Log In</h3>
-                  <form action="/" method="get">
+                  <form action="/login" method="get">
                     <input type="hidden" value="Log In">
                   </form>
                 </a>
@@ -75,7 +75,7 @@
                 </li>
               <% end %>
 
-              <li class="host-options"><a href="#">Host your home</a></li>
+              <li class="host-options"><a href="/spaces/new">Host your home</a></li>
             </ul>
           </div>
         </label>

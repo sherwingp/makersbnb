@@ -380,7 +380,32 @@ body {
 
 #welcome {
   position: absolute;
-  top: 100px;
+}
+
+#welcome h1 {
+  position: relative;
+  top: 80px;
+  right: 40px;
+
+}
+
+.flex-btn {
+  display: none;
+  flex: 1 1 0%;
+  justify-content: center;
+  margin: 0 -16px;
+}
+
+.flex-btn a {
+  background: -webkit-linear-gradient(rgba(195, 228, 215, 1) 0%, rgba(201,61,213.1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 16px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 30px;
+  border-radius: 99px;
+  background-color: white;
 }
 
 .homepage-container img {
