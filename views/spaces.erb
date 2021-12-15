@@ -8,13 +8,17 @@
     <div>
       <%= space.location %>
       <%= space.price %>
-      <%= space.id %>
+      <form method="get" action="/spaces/<%=space.id%>/book">
+    <button type="submit">Book</button>
+    </form>
+
     </div>
     
   
   <% end %>
 
 </center>
+
 
 
 
