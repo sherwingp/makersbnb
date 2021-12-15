@@ -1,7 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require './lib/requests_made'
-require './lib/requests_received'
+require './lib/requests'
+
 
 class MakersBnB < Sinatra::Base
   configure :development do
@@ -9,8 +9,8 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/requests' do
-    @requests1 = Request_made.all
-    @requests2 = Request_made.all
+    @requests = Request.all
+    # @requests2 = Request_received.all
     erb :requests
   end
 
@@ -20,10 +20,11 @@ class MakersBnB < Sinatra::Base
 
   post '/requests' do
     # p params
-    # p "working?"
-    space_id = params['space_id']
-    connection = PG.connect(dbname: 'request_test')
-    connection.exec("INSERT INTO requests (space_id) VALUES('#{space_id}')")
+    # space_id = params['space_id']
+    # connection = PG.connect(dbname: 'request_test')
+    # result = connection.exec("INSERT INTO requests (space_id) VALUES('#{space_id}')")
+    # p result
+    Request.create(space_id: params[:space_id])
     redirect '/requests'
   end
 
