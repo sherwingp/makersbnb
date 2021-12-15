@@ -17,5 +17,5 @@
 #   end
 # end
 
-      connection.exec("INSERT INTO spaces(id, location, price, host_id, guest_id, booked)
-      VALUES (5,'Shoreditch', '500', 'host_1', '1',);")
+      # connection.exec("INSERT INTO spaces(id, location, price, host_id, guest_id, booked)
+      # VALUES (5,'Shoreditch', '500', 'host_1', '1',);")

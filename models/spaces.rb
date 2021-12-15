@@ -16,11 +16,12 @@ class Spaces
   end 
 
   def self.create(location:, price:, host_id:)
-    if ENV['ENVIRONMENT'] == 'test'
-      DatabaseConnection.setup(dbname: 'makersbnb_test')
-     else
-      DatabaseConnection.setup(dbname: 'makersbnb')
-     end
+    # ENV['ENVIRONMENT'] == 'test'
+    #   DatabaseConnection.setup(dbname: 'makersbnb_test')
+    # else
+    #   DatabaseConnection.setup(dbname: 'makersbnb')
+      ENV['ENVIRONMENT'] == 'test' ? DatabaseConnection.setup(dbname: 'makersbnb_test') : DatabaseConnection.setup(dbname: 'makersbnb') 
+    #  end
     result = DatabaseConnection.query("INSERT INTO spaces (location, price, host_id) VALUES ($1, $2, $3) RETURNING id, location, price, host_id;", [location, price, host_id])
     Spaces.new(location: result[0]['location'], price: result[0]['price'], host_id: result[0]['host_id'], id: result[0]['id'])
   end
@@ -29,7 +30,7 @@ class Spaces
   def self.list
     if ENV['ENVIRONMENT'] == 'test'
       DatabaseConnection.setup(dbname: 'makersbnb_test')
-     else
+    else
       DatabaseConnection.setup(dbname: 'makersbnb')
      end
     result = DatabaseConnection.query('SELECT * FROM spaces;')

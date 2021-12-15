@@ -16,10 +16,10 @@ gem 'rspec'
 
 group :development, :test do
   gem 'rubocop', '1.20'
+  gem "pg", "~> 1.2"
 end
 
 group :development do
-  gem "pg", "~> 1.2"
 end
 
 gem "sinatra", "~> 2.1"
