@@ -1,5 +1,7 @@
-feature "List & Viewing a space" do
-  scenario "host can list a space and then view the space" do
+# frozen_string_literal: true
+
+feature 'List & Viewing a space' do
+  scenario 'host can list a space and then view the space' do
     visit('/spaces')
     click_link('List a space')
     fill_in :name, with: 'Makers'

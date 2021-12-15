@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './models/bookings'
@@ -12,7 +14,7 @@ class MakersBnB < Sinatra::Base
 
   get '/spaces' do
     # why does our list not work unless we add a database connection like above
-      @spaces = Spaces.list
+    @spaces = Spaces.list
     erb :spaces
   end
 
@@ -29,7 +31,6 @@ class MakersBnB < Sinatra::Base
     redirect '/spaces'
   end
 
-
   get '/spaces/:id/book' do
     @spaces = Spaces.list
     @bookings = Bookings.find(id: params[:id])
@@ -41,7 +42,7 @@ class MakersBnB < Sinatra::Base
     redirect '/spaces'
   end
 
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end
 
 # get '/bookmarks/:id/edit' do
