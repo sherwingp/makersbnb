@@ -10,7 +10,7 @@ feature 'Registration' do
       fill_in('email', with: 'test@test.com')
       fill_in('password', with: 'password')
       click_button('Sign Up')
-      expect(page).to have_content('Sherwin')
+      expect(page).to have_content('Registration successful.')
     end
 
     context 'Shows an error' do

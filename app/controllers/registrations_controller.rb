@@ -24,6 +24,7 @@ class Makersbnb < Sinatra::Base
       flash[:warning] = 'An account already exists with this email address.'
       redirect '/register'
     else
+      flash[:success] = 'Registration successful.'
       session[:user] = result
       redirect '/'
     end
