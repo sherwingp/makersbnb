@@ -1,0 +1,11 @@
+<div class="homepage-container">
+  <a>
+    <img src="cloris-ying.jpg" alt="A house under the stars">
+  </a>
+  <div id="welcome">
+    <% if session[:user] %>
+    <h1>Welcome<%=", #{session[:user].first_name}!"%></h1>
+    <% end %>
+  </div>
+</div>
+

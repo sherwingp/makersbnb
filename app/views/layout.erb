@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/application.css" />   
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+  </head>
+  <body>
+
+    <nav class="navbar">
+      
+      <div class="container">
+        <div id="logo">
+          <a target="/" href="makersbnb.png">
+            <img src="makersbnb.png" alt="makersbnb logo">
+          </a>
+        </div>
+        <div id="logo-text">
+          <a href="/">
+            <h1> makersbnb </h1>
+          </a>
+        </div>
+        <div class="menu">
+          <a href="/" class="is-active">Home</a>
+          <a href="#">About</a>
+        </div>
+        
+        <input name="checkbox" id="checkbox1" type="checkbox">
+        <label for="checkbox1">
+          <div class="drop-menu">
+            <div class="hamburger is-active">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="icon is-active">
+              <span class="material-icons md-3"> account_circle </span>
+            </div>
+            <ul class="slide">
+
+          <%if session[:user].nil? && request.path_info != '/register' %>
+            <li>
+              <a href="/register">
+                <h3>Sign Up</h3>
+                  <form action="/register" method="get">
+                    <input type="hidden" value="Sign Up" class="nav-link">
+                  </form>
+              </a>
+            </li>
+          <% end %>
+
+              <%if session[:user].nil?%>
+              <li class="list-button" id="login">
+                <a href="/">
+                  <h3>Log In</h3>
+                  <form action="/" method="get">
+                    <input type="hidden" value="Log In">
+                  </form>
+                </a>
+              </li>
+              <% end %>
+
+              <% if session[:user] %>
+                <li>
+                  <div>
+                    <form class="dropdown-form" action='/sessions/logout' method='post'>
+                      <input class="link-button" type='submit' name='log_out' value='Log Out'>
+                    </form>
+                  </div>
+                </li>
+              <% end %>
+
+              <li class="host-options"><a href="#">Host your home</a></li>
+            </ul>
+          </div>
+        </label>
+
+      </div>
+    </nav>
+   
+    <% flash.keys.each do |type| %>
+      <div data-alert class="flash <%= type %> alert-box radius">
+        <%= flash[type] %>
+        <a href="#" class="close">&times;</a>
+      </div>
+    <% end %>
+  <%= yield %>
+
+  </body>
+</html>
