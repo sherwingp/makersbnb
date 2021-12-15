@@ -32,8 +32,40 @@
               <span class="material-icons md-3"> account_circle </span>
             </div>
             <ul class="slide">
-              <li><a href="#">Sign Up</a></li>
-              <li><a href="#">Log In</a></li>
+
+          <%if session[:user].nil? && request.path_info != '/register' %>
+            <li>
+              <a href="/register">
+                <h3>Sign Up</h3>
+                  <form action="/register" method="get">
+                    <input type="hidden" value="Sign Up" class="nav-link">
+                  </form>
+              </a>
+            </li>
+          <% end %>
+
+              <%if session[:user].nil?%>
+              <li class="list-button" id="login">
+                <a href="/">
+                  <h3>Log In</h3>
+                  <form action="/" method="get">
+                    <input type="hidden" value="Log In">
+                  </form>
+                </a>
+              </li>
+              <% end %>
+
+              <% if session[:user] %>
+                <li>
+                  <a href="/log-out">
+                    <h3>Log Out</h3>
+                    <form class="list-button" action='/sessions/logout' method='post'>
+                      <input type='hidden' name='log_out' value='Log Out'>
+                    </form>
+                  </a>
+                </li>
+              <% end %>
+
               <li class="host-options"><a href="#">Host your home</a></li>
             </ul>
           </div>

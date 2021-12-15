@@ -1,9 +1,18 @@
-<form action='/register' method='get'>
-  <input type='submit' value='Create New Account'>
-</form>
-
-<form id="login-form" action='/sessions' method='post'>
-  <input type='text' name='email' placeholder='Email'>
-  <input type='password' name='password' placeholder='Password'>
-  <input type='submit' name='log_in' value='Log In'>
-</form>
+<div id="sign-in-container">
+  <div class="flex-container">
+    <form id="login-form" action='/sessions' method='post'>
+      <div>
+        <input type='text' name='email' placeholder='Email'>
+        <input type='password' name='password' placeholder='Password'>
+        <div class="flex-container">
+        <input type='submit' name='log_in' value='Log In'>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="flex-container">
+    <form action='/register' method='get'>
+        <input type='submit' value='Create New Account'>
+    </form>
+  </div>
+</div>
