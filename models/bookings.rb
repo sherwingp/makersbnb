@@ -16,3 +16,6 @@ class Bookings
   end
 
 end
+
+
+#make booking false by default.

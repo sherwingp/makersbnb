@@ -10,7 +10,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces' do
-    connection = DatabaseConnection.setup('makersbnb')
+    
     # why does our list not work unless we add a database connection like above
       @spaces = Spaces.list
     erb :spaces
@@ -25,7 +25,6 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/spaces/new' do
-    connection = DatabaseConnection.setup('makersbnb')
     Spaces.create(location: params[:Location], price: params[:Price], host_id: params[:name])
     redirect '/spaces'
   end
