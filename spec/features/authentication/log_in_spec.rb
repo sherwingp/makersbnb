@@ -9,7 +9,7 @@ feature 'logging in' do
 
   context 'with an invalid email' do
     scenario 'shows an error message' do
-      visit '/'
+      visit '/login'
       fill_in('email', with: 'invalid email')
       fill_in('password', with: 'password')
       click_button('Log In')
@@ -19,7 +19,7 @@ feature 'logging in' do
 
   context 'with an invalid password' do
     scenario 'shows an error message' do
-      visit '/'
+      visit '/login'
       fill_in('email', with: 'test@test.com')
       fill_in('password', with: 'wrong password')
       click_button('Log In')

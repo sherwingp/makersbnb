@@ -3,7 +3,7 @@
 feature 'Registration' do
   context 'Signing up' do
     scenario 'shows indication of sign up' do
-      visit '/'
+      visit '/login'
       click_button 'Create New Account'
       fill_in('first_name', with: 'Sherwin')
       fill_in('last_name', with: 'Test')
@@ -15,7 +15,7 @@ feature 'Registration' do
 
     context 'Shows an error' do
       scenario 'when an invalid email is given' do
-        visit '/'
+        visit '/login'
         click_button 'Create New Account'
         fill_in('first_name', with: 'Sherwin')
         fill_in('last_name', with: 'Test')
@@ -27,7 +27,7 @@ feature 'Registration' do
 
       scenario 'when an existing email is given' do
         User.create(first_name: 'Sherwin', last_name: 'Test', email: 'test@test.com', password: 'password')
-        visit '/'
+        visit '/login'
         click_button 'Create New Account'
         fill_in('first_name', with: 'Sherwin')
         fill_in('last_name', with: 'Test')

@@ -14,7 +14,6 @@ class Makersbnb < Sinatra::Base
 
   post '/sessions/logout' do
     session.clear
-    p session
     redirect '/'
   end
 end

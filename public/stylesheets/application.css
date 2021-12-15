@@ -527,3 +527,12 @@ body {
 }
 
 /* form ends */
+
+/* space list begins */
+
+div#space-list.flex-container {
+  position: relative;
+  top: 300px;
+}
+
+/* space list ends  */
