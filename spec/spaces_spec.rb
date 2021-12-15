@@ -1,6 +1,6 @@
 
-require_relative '../models/spaces'
-require_relative '../models/database_connection'
+require_relative '../app/models/spaces'
+require_relative '../app/lib/database_connection'
 ENV['ENVIRONMENT'] = 'test' 
 
 describe Spaces do

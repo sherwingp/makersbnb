@@ -4,7 +4,8 @@ require_relative './setup_test_database'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec' 
-require File.join(File.dirname(__FILE__), '..', 'app.rb')
+#require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require './app/app'
 Capybara.app = MakersBnB
 
 RSpec.configure do |config|

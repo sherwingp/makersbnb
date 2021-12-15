@@ -1,8 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require './models/bookings'
-require './models/spaces'
-require './models/database_connection'
+require_relative './models/bookings'
+require_relative './models/spaces'
+require_relative './lib/database_connection'
 
 class MakersBnB < Sinatra::Base
   configure :development do

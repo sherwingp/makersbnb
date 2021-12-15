@@ -1,4 +1,4 @@
-require_relative './database_connection'
+require_relative '../lib/database_connection'
 require_relative './spaces'
 require 'pg'
 

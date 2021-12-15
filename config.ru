@@ -1,3 +1,4 @@
-require './app'
+require './app/app'
+
 
 run MakersBnB
