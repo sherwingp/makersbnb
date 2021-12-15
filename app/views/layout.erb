@@ -4,7 +4,45 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/application.css" />   
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+  </head>
+  <body>
+
+    <nav class="navbar">
+      <div class="container">
+        <h1> makersbnb </h1>
+        <div class="menu">
+          <a href="#" class="is-active">Home</a>
+          <a href="#">About</a>
+        </div>
+        
+        <input name="checkbox" id="checkbox1" type="checkbox">
+        <label for="checkbox1">
+          <div class="drop-menu">
+            <div class="hamburger is-active">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="icon is-active">
+              <span class="material-icons md-3"> account_circle </span>
+            </div>
+            <ul class="slide">
+              <li><a href="#">Sign Up</a></li>
+              <li><a href="#">Log In</a></li>
+              <li class="host-options"><a href="#">Host your home</a></li>
+            </ul>
+          </div>
+        </label>
+
+      </div>
+    </nav>
+    
+
 
     <% if session[:user] %>
       <form action='/sessions/logout' method='post'>

@@ -1,0 +1,221 @@
+:root {
+  --primary: #000000;
+  --light: #EEEEEE;
+  --dark: #A9A9A9;
+  --rausch: #FF5A5F;
+  --Babu: #00A699;
+  --Arches: #FC642D;
+  --Hof:  #484848;
+  --Foggy: #767676;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: var(--Foggy);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background-color: var(--primary);
+  color: white;
+  padding: 16px 32px;
+}
+
+.drop-menu {
+  border-radius: 9999px;
+  background-color: white;
+  height: 40px;
+  width: 80px;
+  z-index: 0;
+}
+
+.drop-menu .slide {
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  background: white;
+  margin-top: 12px;
+  width: 200px;
+  height: 200px;
+  right: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+  list-style: none;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
+}
+
+.drop-menu a {
+  text-decoration: none;
+  color: black;
+}
+
+.drop-menu li {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drop-menu li:hover {
+  background-color: var(--Babu);
+}
+
+#checkbox1 {
+  display: none;
+}
+
+#checkbox-label {
+  height: 100%;
+  width: 100%;
+}
+
+
+:checked + label .slide{
+  opacity: 1;
+  pointer-events: all;
+}
+
+:checked + label .hamburger.hamburger.is-active span{
+  background-color: white;
+}
+
+:checked + label .drop-menu.icon .span{
+  color: white;
+}
+
+:checked + label .drop-menu{
+  background-color: var(--rausch);
+}
+
+.drop-menu:hover  {
+  background-color: var(--rausch);
+}
+
+:checked + label .material-icons.md-3{
+  color: white;
+}
+
+.drop-menu:hover .icon span {
+  color: white;
+}
+
+.drop-menu:hover .hamburger.is-active span{
+  background-color: white;
+}
+
+.icon {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+
+  user-select: none;
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+.hamburger {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+
+  user-select: none;
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 15px;
+  height: 2px;
+  margin-bottom: 5px;
+  top: -7px;
+  right: -15px;
+  position: relative;
+  background-color: var(--Foggy);
+  border-radius: 6px;
+
+  z-index: 1;
+
+  transform-origin: 0 0;
+
+  transition: 0.4s;
+}
+
+.material-icons.md-3 {
+  font-size: 40px;
+  color: black;
+}
+
+.icon span {
+  border-radius: 6px;
+  z-index: 1;
+  position: relative;
+  left: 15px;
+
+  transform-origin: 0 0;
+
+  transition: 0.4s;
+}
+
+.menu {
+  display: none;
+  flex: 1 1 0%;
+  justify-content: center;
+  margin: 0 -16px;
+}
+
+.menu a {
+  color: #EEEEEE;
+  margin: 0 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.4s;
+  padding: 8px 30px;
+  border-radius: 99px;
+}
+
+.menu a.is-active, .menu a:hover {
+  background-color: var(--rausch);
+}
+
+
+
+@media (min-width: 768px) {
+  .menu {
+    display: flex;
+  }
+}
