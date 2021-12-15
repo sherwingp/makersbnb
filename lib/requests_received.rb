@@ -9,6 +9,6 @@ class Request_received
     end
 
     result = connection.exec("SELECT * FROM requests;")
-    result.map { |request| request['approved'] }
+    result.map { |request| request['space_id'] }
   end
 end

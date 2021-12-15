@@ -8,7 +8,7 @@ describe '.all' do
     connection.exec("INSERT INTO requests (approved, space_id) VALUES ('No', 2);")
 
     requests = Request_received.all
-    expect(requests).to include("t")
-    expect(requests).to include("f")
+    expect(requests).to include("1")
+    expect(requests).to include("2")
   end
 end

@@ -8,8 +8,8 @@ feature 'View guest requests' do
       
     visit('/requests')
 
-    expect(page).to have_content "t"
-    expect(page).to have_content "f"
+    expect(page).to have_content "1"
+    expect(page).to have_content "2"
   end
 
   scenario "see all requests I've received for available nights" do
@@ -21,7 +21,7 @@ feature 'View guest requests' do
       
     visit('/requests')
 
-    expect(page).to have_content "t"
-    expect(page).to have_content "f"
+    expect(page).to have_content "1"
+    expect(page).to have_content "2"
   end
 end
