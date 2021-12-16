@@ -37,10 +37,6 @@ class Bookings
   "hello"
  end
 
- def sherwin
-  'prince'
- end
-
 end
 
 # make booking false by default.
