@@ -7,13 +7,19 @@
 </h3>
 
 <ul>
-<% @spaces.each do |space| %>
+<% @requests_made.each do |request| %>
 <li>
-    <%= space.location%>
+    <%= request.space(id: request.space_id).location%>
 </li>
     <% end %>
 </ul>
 
 <h3>Requests I've received </h3>
 
-@requests.received
+<ul>
+<% @received_requests.each do |request| %>
+<li>
+    Request for <%= request.space(id: request.space_id).description%>
+</li>
+    <% end %>
+</ul>

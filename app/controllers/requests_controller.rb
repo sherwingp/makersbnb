@@ -3,7 +3,8 @@
 class Makersbnb < Sinatra::Base
   get '/requests' do
     @requests = Request.all
-    @spaces = @requests.map { |request| request.space(id: request.space_id) }
+    @requests_made = @requests.map { |request| request if session[:user].id == request.guest_id }
+    @received_requests = @requests.map { |request| request if session[:user].id == request.host_id }
     erb :requests
   end
 
