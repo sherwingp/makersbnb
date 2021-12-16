@@ -13,7 +13,13 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/spaces/new' do
-    Spaces.create(location: params[:Location], price: params[:Price], host_id: params[:name])
+    # Need to check if user logged in
+    if session[:user].nil?
+      flash[:error] = "You must be logged in to list a space."
+    else
+      Spaces.create(location: params[:Location], price: params[:Price], description: params[:description], host_id: session[:user].id)
+    end
+    
     redirect '/spaces'
   end
 
