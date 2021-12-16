@@ -1,9 +1,9 @@
+# frozen_string_literal: true
+
 require './app/models/requests'
 
 describe '.all' do
   it 'guests can see requests made for all available nights' do
-   
-
     request = Request.create(space_id: 'space_1')
     Request.create(space_id: 'space_2')
     requests = Request.all

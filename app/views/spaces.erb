@@ -17,6 +17,8 @@
       </div>
       <div>
         <form method="post" action="/spaces/<%=space.id%>/book">
+          <input type="hidden" name="space_id" value="<%=space.id%>">
+          <input type="hidden" name="host_id" value="<%=space.host_id%>">
           <button type="submit">Book</button>
         </form>
       </div>

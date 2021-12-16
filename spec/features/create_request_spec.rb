@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 feature 'Creating a new request' do
   scenario 'A guest can create a new request' do
     visit('/requests/create')

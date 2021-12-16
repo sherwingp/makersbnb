@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 feature 'View guest requests' do
   scenario "see all requests I've made for available nights" do
     Request.create(space_id: 'space_1')
