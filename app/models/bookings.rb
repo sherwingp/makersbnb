@@ -32,6 +32,11 @@ class Bookings
     Spaces.new(location: result[0]['location'], price: result[0]['price'], host_id: result[0]['host_id'],
                id: result[0]['id'])
   end
+
+ def check_dates
+  "hello"
+ end
+
 end
 
 # make booking false by default.
