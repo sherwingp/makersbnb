@@ -2,14 +2,18 @@
 
 <h3>
   Requests I've made
+  
+  
 </h3>
 
 <ul>
-<% @requests.each do |request| %>
+<% @spaces.each do |space| %>
 <li>
-    <%= request.space_id %>
+    <%= space.location%>
 </li>
     <% end %>
 </ul>
 
 <h3>Requests I've received </h3>
+
+@requests.received

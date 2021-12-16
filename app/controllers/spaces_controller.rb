@@ -23,15 +23,10 @@ class Makersbnb < Sinatra::Base
     redirect '/spaces'
   end
 
-  get '/spaces/:id/book' do
-    @spaces = Spaces.list
-    @bookings = Bookings.find(id: params[:id])
-    erb :booking
+  post '/spaces/:id/book' do
+    @requests = Request.create(space_id: 1, guest_id: 1, host_id: 1)
+    redirect '/requests'
   end
 
-  patch '/spaces/:id' do
-    Bookings.book(id: params[:id])
-    redirect '/spaces'
-  end
 end
 

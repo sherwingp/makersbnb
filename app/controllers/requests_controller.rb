@@ -3,6 +3,7 @@
 class Makersbnb < Sinatra::Base
   get '/requests' do
     @requests = Request.all
+    @spaces = @requests.map {|request| request.space(request.space_id) }
     erb :requests
   end
 
