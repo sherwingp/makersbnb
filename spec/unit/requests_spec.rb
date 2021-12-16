@@ -9,7 +9,6 @@ describe Request do
   let(:space) { Spaces.create(location: 'Paris', price: '300', host_id: user.id, description: 'a space') }
 
   describe '.all' do
-
     it 'guests can see requests made for all available nights' do
       request = Request.create(space_id: space.id, guest_id: user.id, host_id: user.id)
       request2 = Request.create(space_id: space.id, guest_id: user.id, host_id: user.id)
