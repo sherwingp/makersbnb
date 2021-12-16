@@ -2,7 +2,7 @@ require 'requests'
 
 describe '.all' do
   it 'guests can see requests made for all available nights' do
-    connection = PG.connect(dbname: 'request_test')
+    PG.connect(dbname: 'request_test')
 
     request = Request.create(space_id: 'space_1')
     Request.create(space_id: 'space_2')
