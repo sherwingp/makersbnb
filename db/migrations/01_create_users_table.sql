@@ -5,3 +5,9 @@ CREATE TABLE users(
   email VARCHAR(254),
   password VARCHAR(254)
 );
+
+
+
+
+
+CREATE TABLE requests (id SERIAL PRIMARY KEY, approved BOOLEAN NOT NULL DEFAULT FALSE, space_id VARCHAR(50));
