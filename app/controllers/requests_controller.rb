@@ -1,10 +1,6 @@
 
 
 class Makersbnb < Sinatra::Base
-  configure :development do
-    register Sinatra::Reloader
-  end
-
   get '/requests' do
     @requests = Request.all
     erb :requests
