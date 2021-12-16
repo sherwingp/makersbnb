@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
 feature 'View guest requests' do
-  scenario "see all requests I've made for available nights" do
-    Request.create(space_id: 'space_1')
-    Request.create(space_id: 'space_2')
-    visit('/requests')
+  let!(:user) { User.create(first_name: 'Sherwin', last_name: 'Test', email: 'test@test.com', password: 'test') }
+  let!(:space) { Spaces.create(location: 'Paris', price: '300', host_id: user.id, description: 'a space') }
 
-    expect(page).to have_content 'space_1'
-    expect(page).to have_content 'space_2'
+  scenario "see all requests I've made for available nights" do
+
   end
 end

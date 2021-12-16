@@ -19,7 +19,7 @@ class Makersbnb < Sinatra::Base
     if session[:user].nil?
       flash[:error] = 'You must be logged in to list a space.'
     else
-      Spaces.create(location: params[:Location], price: params[:Price], description: params[:description],
+      Spaces.create(location: params[:location], price: params[:price], description: params[:description],
                     host_id: session[:user].id)
     end
 
