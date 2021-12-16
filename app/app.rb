@@ -14,10 +14,3 @@ require_relative 'controllers/registrations_controller'
 require_relative 'controllers/sessions_controller'
 require_relative 'controllers/spaces_controller'
 
-def sherwin
-  'boss'
-end
-
-def zoe
-  'where is waqas'
-end

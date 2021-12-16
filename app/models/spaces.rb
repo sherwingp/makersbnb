@@ -6,9 +6,7 @@ require 'pg'
 class Spaces
   attr_reader :location, :price, :host_id, :id
 
-  def testing
-    'hello'
-  end
+  
 
   def initialize(location:, price:, host_id:, id:)
     @location = location
