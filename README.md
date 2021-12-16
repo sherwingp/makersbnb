@@ -3,6 +3,8 @@ Makersbnb
 
 An Airbnb Clone built in Ruby using Sinatra, Capybara, and PostgreSQL.
 
+[![Screenshot-2021-12-16-at-22-43-56.png](https://i.postimg.cc/v8XddcJw/Screenshot-2021-12-16-at-22-43-56.png)](https://postimg.cc/G9BfFh3X)
+
 ## Setup
 
 ```
