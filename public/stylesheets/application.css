@@ -677,6 +677,7 @@ div#space-list.flex-container {
   display: flex;
   padding: 100px;
   height: 800px;
+  margin-top: 50px;
 }
 
 .flex-child {
