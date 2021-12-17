@@ -44,4 +44,14 @@ class Makersbnb < Sinatra::Base
     erb :spaces
   end
 
+  delete '/spaces/:id' do
+    if session[:user].nil?
+      flash[:error] = 'You must be logged in to book a space.'
+      redirect '/spaces'
+    else
+    Spaces.delete(id: params[:space_id])
+    redirect '/spaces'
+  end
+end
+
 end

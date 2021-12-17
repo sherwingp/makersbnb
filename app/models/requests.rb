@@ -40,4 +40,14 @@ class Request
     @space.new(location: result[0]['location'], price: result[0]['price'], description: result[0]['description'],
                id: result[0]['id'], host_id: result[0]['host_id'], available_from: result[0]['available_from'], available_to: result[0]['available_to'])
   end
+
+  def self.delete(id:)
+    result = DatabaseConnection.query("DELETE FROM requests WHERE id = $1", [id])
+  end
+
+  def approve
+    result = DatabaseConnection.query("UPDATE requests SET approved = true WHERE id = #{@id}")
+    result = Request.new(id: result[0]['id'], space_id: result[0]['space_id'], guest_id: result[0]['guest_id'],
+      host_id: result[0]['host_id'])
+  end
 end

@@ -1,7 +1,7 @@
 CREATE TABLE requests (
   id SERIAL PRIMARY KEY, 
   approved BOOLEAN NOT NULL DEFAULT FALSE, 
-  space_id INT NOT NULL REFERENCES spaces(id), 
+  space_id INT NOT NULL REFERENCES spaces(id) ON DELETE CASCADE,
   guest_id INT NOT NULL REFERENCES users(id), 
   host_id INT NOT NULL REFERENCES users(id)
 );
