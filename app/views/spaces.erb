@@ -11,8 +11,10 @@
 <form action="/spaces" method="post" style="color:white">
   <strong >Available between</strong>
   <div>
-  <input type="text" name="available_from" placeholder="YYYY-MM-DD">
-  <input type="text" name="available_to" placeholder="YYYY-MM-DD">
+  <input type="date" name="available_from" value="2020-12-17"
+       min="2020-12-17" max="2022-12-17">
+  <input type="date" name="available_to" value="2020-12-18"
+       min="2020-12-18" max="2022-12-17">
   </div>
 </form>
 
