@@ -38,4 +38,8 @@ class Request
     @space.new(location: result[0]['location'], price: result[0]['price'], description: result[0]['description'],
                id: result[0]['id'], host_id: result[0]['host_id'])
   end
+
+  def self.delete(id:)
+    result = DatabaseConnection.query("DELETE FROM requests WHERE id = $1", [id])
+  end
 end
