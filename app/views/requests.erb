@@ -1,25 +1,32 @@
-<h1> Requests</h1>
+<div class="requests-container">
 
-<h3>
-  Requests I've made
-  
-  
-</h3>
+    <div class="flex-child made">
+        <h3>Requests I've made</h3>
+        <ul>
+            <% @requests_made.each do |request| %>
+            <li>
+                <%= request.space(id: request.space_id).location %>
+            </li>
+            <% end %>
+        </ul>
+    </div>
 
-<ul>
-<% @requests_made.each do |request| %>
-<li>
-    <%= request.space(id: request.space_id).location %>
-</li>
-    <% end %>
-</ul>
+    <div class="flex-child received">
+        <h3>Requests I've received </h3>
 
-<h3>Requests I've received </h3>
+        <ul>
+            <% @received_requests.each do |request| %>
+            <li>
+                Request for <%= request.space(id: request.space_id).description %>
+                <form method="post" action="/requests/<%=request.id%>/approve">
+                  <input type="submit" value="Approve"/>
+                </form>
+            </li>
+                <% end %>
+        </ul>
+    </div>
 
-<ul>
-<% @received_requests.each do |request| %>
-<li>
-    Request for <%= request.space(id: request.space_id).description %>
-</li>
-    <% end %>
-</ul>
+
+
+
+
