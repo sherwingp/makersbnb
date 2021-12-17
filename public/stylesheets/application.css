@@ -672,3 +672,23 @@ div#space-list.flex-container {
 
 /* space list ends  */
 
+/* request page begins */
+.requests-container {
+  display: flex;
+  padding: 100px;
+  height: 800px;
+  margin-top: 50px;
+}
+
+.flex-child {
+  flex: 1;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  background-color: grey;
+  text-align: center;
+}  
+
+.flex-child:first-child {
+  margin-right: 20px;
+} 
+/* request page ends */
