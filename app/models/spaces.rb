@@ -30,4 +30,9 @@ class Spaces
                  id: space['id'], host_id: space['host_id'])
     end
   end
+
+  def self.delete(id:)
+    result = DatabaseConnection.query("DELETE FROM spaces WHERE id = $1", [id])
+
+  end
 end

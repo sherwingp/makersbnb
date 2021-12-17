@@ -39,10 +39,13 @@ class Request
                id: result[0]['id'], host_id: result[0]['host_id'])
   end
 
+  def self.delete(id:)
+    result = DatabaseConnection.query("DELETE FROM requests WHERE id = $1", [id])
+  end
+
   def approve
     result = DatabaseConnection.query("UPDATE requests SET approved = true WHERE id = #{@id}")
     result = Request.new(id: result[0]['id'], space_id: result[0]['space_id'], guest_id: result[0]['guest_id'],
       host_id: result[0]['host_id'])
   end
-
 end

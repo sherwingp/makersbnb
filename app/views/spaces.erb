@@ -14,6 +14,11 @@
             <input type="hidden" name="host_id" value="<%=space.host_id%>">
             <button type="submit">Book</button>
           </form>
+           <form method="post" action="/spaces/<%=space.id%>"  >
+            <input type='hidden' name='_method' value='delete'>
+            <input type="hidden" name="space_id" value="<%=space.id%>">
+            <button type="submit">Delete Space</button>
+          </form>
         </div>
 
       </div>
