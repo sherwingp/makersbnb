@@ -32,6 +32,15 @@ class Request
     Request.new(id: result[0]['id'], space_id: result[0]['space_id'], guest_id: result[0]['guest_id'],
                 host_id: result[0]['host_id'])
   end
+  
+  # def self.find(id:)
+  #   result = DatabaseConnection.query(
+  #     'SELECT * FROM requests WHERE id = $1 RETURNING id, approved, space_id, guest_id, host_id;', [id]
+  #   )
+  #   Request.new(id: result['id'], approved: result['approved'], space_id: result['space_id'], guest_id: result['guest_id'],
+  #     host_id: result['host_id'])
+  # end
+  #  MUST FIX
 
   def space(id:)
     result = DatabaseConnection.query('SELECT * FROM spaces WHERE id = $1', [id])

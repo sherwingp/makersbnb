@@ -23,7 +23,8 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/requests/:id/approve' do
-    request.approve
+    # @request = Request.find(id: params[:id])  NEED  TO FIX
+    @request.approve
     flash[:success] = 'Your space has been approved!'
     redirect '/requests'
   end
