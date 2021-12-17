@@ -5,21 +5,23 @@ require_relative './spaces'
 require 'pg'
 
 class Request
-  attr_reader :id, :space_id, :guest_id, :host_id, :space
+  attr_reader :id, :space_id, :guest_id, :host_id, :space, :available_from, :available_to
 
-  def initialize(id:, space_id:, guest_id:, host_id:, space: Spaces)
+  def initialize(id:, space_id:, guest_id:, host_id:, space: Spaces, available_from:, available_to:)
     @id = id
     @space_id = space_id
     @guest_id = guest_id
     @host_id = host_id
     @space = space
+    @available_from = available_from
+    @available_to = available_to
   end
 
   def self.all
     result = DatabaseConnection.query('SELECT * FROM requests;')
     result.map do |request|
       Request.new(id: request['id'], space_id: request['space_id'], guest_id: request['guest_id'],
-                  host_id: request['host_id'])
+                  host_id: request['host_id'], available_from: request['available_from'], available_to: request['available_to'])
     end
   end
 
@@ -36,7 +38,7 @@ class Request
   def space(id:)
     result = DatabaseConnection.query('SELECT * FROM spaces WHERE id = $1', [id])
     @space.new(location: result[0]['location'], price: result[0]['price'], description: result[0]['description'],
-               id: result[0]['id'], host_id: result[0]['host_id'])
+               id: result[0]['id'], host_id: result[0]['host_id'], available_from: result[0]['available_from'], available_to: result[0]['available_to'])
   end
 
   def self.delete(id:)

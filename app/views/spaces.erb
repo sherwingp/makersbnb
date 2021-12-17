@@ -1,3 +1,29 @@
+<center>
+
+  <h1> Book a space </h1>
+  <h2>Not sure where to go? Look below for some inspiration!</h2>
+  <form action ="/spaces/new" method ="get">
+    <button type="submit" name="List a space">List a space</button>
+  </form>
+  <br/>
+  <br/>
+
+<form action="/spaces" method="post" style="color:white">
+  <strong >Available between</strong>
+  <div>
+  <input type="text" name="available_from" placeholder="YYYY-MM-DD">
+  <input type="text" name="available_to" placeholder="YYYY-MM-DD">
+  </div>
+</form>
+
+<form action="/spaces" method="post">
+  <input type="hidden" name="_method" value="PATCH" />
+    <input type="button" value="Refresh">
+</form>
+
+</center>
+
+
 <div class="wrapper">
   <article class="content">
 
