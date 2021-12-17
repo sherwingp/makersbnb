@@ -25,9 +25,9 @@ class Spaces
 
   def self.list
     result = DatabaseConnection.query('SELECT * FROM spaces;')
-    result.map do |_space|
-      Spaces.new(location: result[0]['location'], price: result[0]['price'], description: result[0]['description'],
-                 id: result[0]['id'], host_id: result[0]['host_id'])
+    result.map do |space|
+      Spaces.new(location: space['location'], price: space['price'], description: space['description'],
+                 id: space['id'], host_id: space['host_id'])
     end
   end
 end

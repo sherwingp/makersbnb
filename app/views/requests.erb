@@ -9,7 +9,7 @@
 <ul>
 <% @requests_made.each do |request| %>
 <li>
-    <%= request.space(id: request.space_id).location%>
+    <%= request.space(id: request.space_id).location %>
 </li>
     <% end %>
 </ul>
@@ -19,7 +19,7 @@
 <ul>
 <% @received_requests.each do |request| %>
 <li>
-    Request for <%= request.space(id: request.space_id).description%>
+    Request for <%= request.space(id: request.space_id).description %>
 </li>
     <% end %>
 </ul>
