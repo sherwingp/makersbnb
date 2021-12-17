@@ -22,7 +22,7 @@ class Makersbnb < Sinatra::Base
       redirect '/spaces/new'
     else
       Spaces.create(location: params[:location], price: params[:price], description: params[:description],
-                    host_id: session[:user].id)
+                    host_id: session[:user].id, available_from: params[:available_from], available_to: params[:available_to])
       redirect '/spaces'
     end
 
@@ -38,4 +38,10 @@ class Makersbnb < Sinatra::Base
       redirect '/requests'
     end
   end
+ 
+  patch '/spaces' do
+    Bookings.check_dates(available_from: params[:available_from], available_to: params[:available_to])
+    erb :spaces
+  end
+
 end
