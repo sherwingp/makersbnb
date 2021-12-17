@@ -20,6 +20,10 @@
 <% @received_requests.each do |request| %>
 <li>
     Request for <%= request.space(id: request.space_id).description %>
+  <form method="post" action="/requests/<%=request.id%>/approve">
+    <input type="submit" value="Approve"/>
+  </form>
 </li>
     <% end %>
 </ul>
+

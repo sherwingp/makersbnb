@@ -21,4 +21,10 @@ class Makersbnb < Sinatra::Base
     Request.create(space_id: params[:space_id])
     redirect '/requests'
   end
+
+  post '/requests/:id/approve' do
+    request.approve
+    flash[:success] = 'Your space has been approved!'
+    redirect '/requests'
+  end
 end
