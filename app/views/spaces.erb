@@ -1,30 +1,27 @@
-<div id="space-list" class="flex-container">
-<div id="booking-header">
-  <h1> Book a space </h1>
-  <a href="/spaces/new">List a space</a>
+<div class="wrapper">
+  <article class="content">
+
+
+    <% @spaces.each do |space| %>
+      <div class="panel">
+        <img class="panel-img" src="https://a0.muscache.com/im/pictures/10356334/a831e142_original.jpg?aki_policy=large" />
+        <div class="panel-title"><%= space.description %> </div>
+        <div class="panel-subtitle"><%= space.location %></div>
+        <div>£<%= space.price %> total</div>
+        <div>
+          <form method="post" action="/spaces/<%=space.id%>/book">
+            <input type="hidden" name="space_id" value="<%=space.id%>">
+            <input type="hidden" name="host_id" value="<%=space.host_id%>">
+            <button type="submit">Book</button>
+          </form>
+        </div>
+
+      </div>
+    
+    <% end %>
+  </article>
 </div>
 
-  <% @spaces.each do |space| %>
-    <div>
-      <div>
-        <%= space.description %>
-      </div>
-      <div>
-        <%= space.location %>
-      </div>
-      <div>
-        <%= space.price %>
-      </div>
-      <div>
-        <form method="get" action="/spaces/<%=space.id%>/book">
-          <button type="submit">Book</button>
-        </form>
-      </div>
-
-    </div>
-  
-  <% end %>
-</div>
 
 
 

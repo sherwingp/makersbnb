@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 class Makersbnb < Sinatra::Base
   get '/spaces' do
     @spaces = Spaces.list
+    p @spaces
     erb :spaces
   end
 
@@ -15,23 +18,24 @@ class Makersbnb < Sinatra::Base
   post '/spaces/new' do
     # Need to check if user logged in
     if session[:user].nil?
-      flash[:error] = "You must be logged in to list a space."
+      flash[:error] = 'You must be logged in to list a space.'
+      redirect '/spaces/new'
     else
-      Spaces.create(location: params[:Location], price: params[:Price], description: params[:description], host_id: session[:user].id)
+      Spaces.create(location: params[:location], price: params[:price], description: params[:description],
+                    host_id: session[:user].id)
+      redirect '/spaces'
     end
-    
+
     redirect '/spaces'
   end
 
-  get '/spaces/:id/book' do
-    @spaces = Spaces.list
-    @bookings = Bookings.find(id: params[:id])
-    erb :booking
-  end
-
-  patch '/spaces/:id' do
-    Bookings.book(id: params[:id])
-    redirect '/spaces'
+  post '/spaces/:id/book' do
+    if session[:user].nil?
+      flash[:error] = 'You must be logged in to book a space.'
+      redirect '/spaces'
+    else
+      @requests = Request.create(space_id: params[:space_id], guest_id: session[:user].id, host_id: params[:host_id])
+      redirect '/requests'
+    end
   end
 end
-

@@ -2,7 +2,7 @@
 
 class Makersbnb < Sinatra::Base
   get '/' do
-      erb(:homepage)
+    erb(:homepage)
   end
 
   get '/login' do

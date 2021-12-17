@@ -15,4 +15,3 @@ require_relative 'controllers/registrations_controller'
 require_relative 'controllers/sessions_controller'
 require_relative 'controllers/spaces_controller'
 require_relative 'controllers/requests_controller'
-
